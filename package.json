@@ -1,0 +1,22 @@
+{
+  "name": "freecodecamp-algorithms",
+  "version": "1.0.0",
+  "description": "Algos from freecodecamp",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --watch --config ./jest-config.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ds17f/freeCodeCamp-algorithms.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ds17f/freeCodeCamp-algorithms/issues"
+  },
+  "homepage": "https://github.com/ds17f/freeCodeCamp-algorithms#readme",
+  "dependencies": {
+    "jest": "^26.4.2"
+  }
+}
