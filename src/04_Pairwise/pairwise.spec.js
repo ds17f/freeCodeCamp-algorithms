@@ -12,7 +12,7 @@ describe('Test pairwise', () => {
       [[[], 100], 0]
     ]
   )('pairwise(%j) should return %j', (inputs, expected) => {
-    expect(pairwise(inputs)).toBe(expected);
+    expect(pairwise(...inputs)).toBe(expected);
   });
 
 });
