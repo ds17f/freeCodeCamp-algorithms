@@ -15,19 +15,20 @@ const swap = (A, x, y) => {
   return A;
 };
 
+let count = 0;
 const permAlone = (input, ...args) => {
   if (!args.length) {
+    count = 0;
     input = Array.from(input);
     args.push(input.length);
-    args.push([]);
   }
-  let [size, results] = args;
+  let [size] = args;
   if (size === 1) {
     if ( noDupes(input.join("")) ) {
-      results.push(input.join(""));
+      count += 1;
     }
   } else {
-    permAlone(input, size-1, results);
+    permAlone(input, size-1);
 
     for (let i = 0; i < size -1; i++) {
       if (size % 2) {
@@ -37,10 +38,10 @@ const permAlone = (input, ...args) => {
         //even
         swap(input, i, size-1);
       }
-      permAlone(input, size-1, results);
+      permAlone(input, size-1);
     }
   }
-  return results.length;
+  return count;
 }
 
 module.exports = {
