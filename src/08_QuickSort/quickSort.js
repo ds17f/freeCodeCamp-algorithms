@@ -12,9 +12,9 @@ const partition = (arr, lo, hi, side) => {
 }
 
 const parition_HOAR = (arr, lo, hi) => {
-  const pivot = Math.floor((hi + lo) / 2);
-  let j = lo - 1;
-  let i = hi + 1;
+  const pivot = arr[Math.floor((hi + lo) / 2)];
+  let i = lo - 1;
+  let j = hi + 1;
   while (true) {
     do {
       i++
@@ -27,6 +27,7 @@ const parition_HOAR = (arr, lo, hi) => {
     }
     swap(arr, i, j)
   }
+  return arr;
 }
 
 const partition_orig = (arr, lo, hi, side) => {
