@@ -10,17 +10,16 @@ const mergeSort = (arr, ...args) => {
 	const[start, end] = args;
 	if ((end - start) < 2) {
 		// only 1 and that's sorted
-		return [args[start]];
+		return [arr[start]];
 	} else {
 		const split = Math.floor((end + start) / 2);
 		const left = mergeSort(arr, start, split);
-		const right = mergeSort(arr, split + 1, end 
-		-1);
+		const right = mergeSort(arr, split, end);
 		const tmp = [];
 		
 		let i = 0;
 		let j = 0;
-		while( i < left.length || j < right.length) {
+		while( i < left.length && j < right.length) {
 			if (left[i] < right[j]) {
 				tmp.push(left[i]);
 				i++;
@@ -28,6 +27,12 @@ const mergeSort = (arr, ...args) => {
 				tmp.push(right[j]);
 				j++;
 			}
+		}
+		for (let ii = i; ii < left.length; ii++) {
+			tmp.push(left[ii])
+		}
+		for (let jj = j; jj < right.length; jj++) {
+			tmp.push(right[jj])
 		}
 		return tmp;
 	}
