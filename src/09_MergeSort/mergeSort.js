@@ -2,7 +2,7 @@ const swap = (A, x, y) => {
   [A[x], A[y]] = [A[y], A[x]]
 };
 
-const mergeSort = (arr, ...args) => {
+const mergeSort1 = (arr, ...args) => {
 	if (!args.length) {
 		args.push(0);
 		args.push(arr.length)
@@ -36,6 +36,31 @@ const mergeSort = (arr, ...args) => {
 		}
 		return tmp;
 	}
+
+}
+
+const mergeSort = arr => {
+
+	if (arr.length === 1) {
+		return arr
+	}
+
+	const midpoint = Math.floor(arr.length / 2);
+	const leftArr = mergeSort(arr.slice(0, midpoint))
+	const rightArr = mergeSort(arr.slice(midpoint, arr.length))
+
+	let result = []
+	while (leftArr.length && rightArr.length) {
+		if (leftArr[0] < rightArr[0]) {
+			result.push(leftArr.shift());
+		} else {
+		  result.push(rightArr.shift());
+		}
+	}
+	result.splice(result.length, 0, ...leftArr);
+	result.splice(result.length, 0, ...rightArr);
+
+	return result;
 
 }
 
